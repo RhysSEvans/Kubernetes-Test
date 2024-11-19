@@ -33,7 +33,7 @@ spec:
       app: nginx
   strategy:
     rollingUpdate:
-      maxSurge: 12.5%
+      maxSurge: 10%
       maxUnavailable: 25%
   template:
     metadata:
@@ -49,7 +49,7 @@ spec:
         image: nginx:latest
         imagePullPolicy: Always
         ports: 
-        - containerPort: 81
+        - containerPort: 80
         volumeMounts:
         - name: nginx-volume
           mountPath: /etc/nginx/
@@ -64,5 +64,5 @@ spec:
     app: nginx
   ports:
   - protocol: TCP
-    port: 81
-    targetPort: 81
+    port: 80
+    targetPort: 80
